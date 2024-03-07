@@ -76,12 +76,14 @@ export const Overview = () => {
           </View>
         </View>
       </View>
-      <FlatList
-        data={data}
-        renderItem={renderCard}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.gadoContainer}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Details")}>
+        <FlatList
+          data={data}
+          renderItem={renderCard}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.gadoContainer}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

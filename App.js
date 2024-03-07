@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Overview } from "./screens/Overview/Overview.js";
 import { AddGadoScreen } from "./screens/AddGadoScreen/AddGadoScreen.js";
+import { Details } from "./screens/Details/Details.js";
 import { Image } from "react-native";
 import cowIcon from "./assets/icons/cow-icon.png";
 import remedyIcon from "./assets/icons/remedy-icon.png";
@@ -116,6 +117,13 @@ export default function App() {
         <Stack.Screen
           name="AddGado"
           component={AddGadoScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
           options={{
             headerShown: false,
           }}

@@ -23,7 +23,9 @@ export const AddGadoScreen = () => {
   };
 
   const handleConfirmar = () => {
-    console.log("Dados confirmados. Navegar para a próxima tela ou realizar ação.");
+    console.log(
+      "Dados confirmados. Navegar para a próxima tela ou realizar ação."
+    );
   };
 
   return (
