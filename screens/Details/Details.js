@@ -1,4 +1,3 @@
-import * as react from "react-native";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Gado from "../../assets/images/Cow.png";
 import { useNavigation } from "@react-navigation/native";
@@ -18,8 +17,12 @@ export const Details = () => {
           <Text style={styles.title}>Detalhes</Text>
         </TouchableOpacity>
         <View style={styles.icons}>
-          <Ionicons name="trash-outline" size={24} color="red" />
-          <MaterialCommunityIcons name="pencil" size={24} color="black" />
+          <TouchableOpacity>
+            <Ionicons name="trash-outline" size={24} color="red" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Edit', { dadosBoi: {nome: "Boi 03", descricao: "Boi velho", pesoKG: "540", arroba: "18"}})}>
+            <MaterialCommunityIcons name="pencil" size={24} color="black" />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.gadoImage}>
@@ -36,7 +39,7 @@ export const Details = () => {
             <Text style={styles.h2}>18.0 @</Text>
           </View>
 
-          <TouchableOpacity style={styles.greenButton}>
+          <TouchableOpacity onPress={() => navigation.navigate('Edit', { dadosBoi: {nome: "Boi 03", descricao: "Boi velho", pesoKG: "540", arroba: "18"}})} style={styles.greenButton}>
             <Text style={styles.greenButtonText}>Atualizar Peso</Text>
           </TouchableOpacity>
         </View>

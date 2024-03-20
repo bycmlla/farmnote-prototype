@@ -31,14 +31,14 @@ const data = [
   },
 ];
 
-const renderCard = ({ item }) => (
-  <View style={styles.cardContainer}>
+const RenderCard = (item, navigation ) => (
+  <TouchableOpacity  onPress={() => navigation.navigate("Details")} style={styles.cardContainer}>
     <Image source={item.image} style={styles.cardImage} />
     <View style={styles.cardOverlay}>
       <Text style={styles.cardText}>{item.description1}</Text>
       <Text style={styles.cardText2}>{item.description2}</Text>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 export const Overview = () => {
@@ -76,14 +76,13 @@ export const Overview = () => {
           </View>
         </View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("Details")}>
         <FlatList
           data={data}
-          renderItem={renderCard}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) => RenderCard(item, navigation)}
           keyExtractor={(item) => item.id.toString()}
           contentContainerStyle={styles.gadoContainer}
         />
-      </TouchableOpacity>
     </View>
   );
 };

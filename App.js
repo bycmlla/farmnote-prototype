@@ -12,6 +12,12 @@ import gateIcon from "./assets/icons/gate-icon.png";
 import handsIcon from "./assets/icons/hands-icon.png";
 import placeIcon from "./assets/icons/place-icon.png";
 import { StatusBar } from "expo-status-bar";
+import { Edit } from "./screens/Edit/Edit.js";
+import { Remedy } from "./screens/Remedy/Remedy.js";
+import { RemedyDetails } from "./screens/RemedyDetails/RemedyDetails.js";
+import Tela1 from "./screens/Tela1.js";
+import Tela2 from "./screens/Tela2.js";
+import Tela3 from "./screens/Tela3.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -35,13 +41,13 @@ const Home = () => {
         component={Overview}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Image
               source={cowIcon}
               style={{
                 width: size + 5,
                 height: size + 5,
-                tintColor: "green",
+                tintColor: focused ? "green" : undefined,
               }}
             />
           ),
@@ -49,39 +55,51 @@ const Home = () => {
       />
       <Tab.Screen
         name="Remedy"
-        component={Overview}
+        component={Remedy}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Image
               source={remedyIcon}
-              style={{ width: size + 5, height: size + 5 }}
+              style={{
+                width: size + 5,
+                height: size + 5,
+                tintColor: focused ? "green" : undefined,
+              }}
             />
           ),
         }}
       />
       <Tab.Screen
         name="Gate"
-        component={Overview}
+        component={Tela1}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Image
               source={gateIcon}
-              style={{ width: size + 5, height: size + 5 }}
+              style={{
+                width: size + 5,
+                height: size + 5,
+                tintColor: focused ? "green" : undefined,
+              }}
             />
           ),
         }}
       />
       <Tab.Screen
         name="Hands"
-        component={Overview}
+        component={Tela3}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Image
               source={handsIcon}
-              style={{ width: size + 5, height: size + 5 }}
+              style={{
+                width: size + 5,
+                height: size + 5,
+                tintColor: focused ? "green" : undefined,
+              }}
             />
           ),
         }}
@@ -91,10 +109,14 @@ const Home = () => {
         component={Overview}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Image
               source={placeIcon}
-              style={{ width: size + 5, height: size + 5 }}
+              style={{
+                width: size + 5,
+                height: size + 5,
+                tintColor: focused ? "green" : undefined,
+              }}
             />
           ),
         }}
@@ -127,6 +149,35 @@ export default function App() {
           options={{
             headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="RemedyDetails"
+          component={RemedyDetails}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Edit"
+          component={Edit}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Tela1"
+          component={Tela1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Tela2"
+          component={Tela2}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Tela3"
+          component={Tela3}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
